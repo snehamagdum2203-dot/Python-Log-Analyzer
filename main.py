@@ -2,15 +2,21 @@ from log_analyzer import analyze_log
 from report_generator import generate_report
 
 
-LOG_FILE = "sample.log"
 REPORT_FILE = "report.txt"
 
 
 def main():
     print("===== PYTHON LOG ANALYZER =====")
-    print(f"Analyzing: {LOG_FILE}\n")
 
-    results, error_messages = analyze_log(LOG_FILE)
+    log_file = input("Enter log file path: ").strip()
+
+    if not log_file:
+        print("Error: Log file path cannot be empty.")
+        return
+
+    print(f"\nAnalyzing: {log_file}\n")
+
+    results, error_messages = analyze_log(log_file)
 
     if results is None:
         return
@@ -22,3 +28,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
