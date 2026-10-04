@@ -16,16 +16,21 @@ def main():
 
     print(f"\nAnalyzing: {log_file}\n")
 
-    results, error_messages = analyze_log(log_file)
+    results, error_messages, total_lines, invalid_lines = analyze_log(log_file)
 
     if results is None:
         return
 
-    generate_report(results, error_messages, REPORT_FILE)
+    generate_report(
+        results,
+        error_messages,
+        total_lines,
+        invalid_lines,
+        REPORT_FILE
+    )
 
     print("\nLog analysis completed successfully.")
 
 
 if __name__ == "__main__":
     main()
-    
